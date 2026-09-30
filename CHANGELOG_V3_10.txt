@@ -1,0 +1,7 @@
+SMART CLASSROOM V3.10 - RESPONSIVE / SCROLL FIX
+
+- Form Connect/Login/Register/Forgot/OTP/Reset co thanh cuon doc khi man hinh thap.
+- Form Dang ky khong con bi cat phan Vai tro / nut Tao tai khoan.
+- Server Admin co scroll trang doc, dung duoc tren man hinh 720p va khi Windows scale lon.
+- Khu cau hinh Server doi sang hang co kich thuoc on dinh, khong wrap/clipping bat thuong.
+- Giu nguyen toan bo chuc nang V3.9/V3.8: MySQL, OTP, WebRTC native, screen share focus, file chat, attendance.

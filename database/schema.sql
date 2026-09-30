@@ -1,0 +1,78 @@
+CREATE DATABASE IF NOT EXISTS smart_classroom CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE smart_classroom;
+
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  full_name VARCHAR(160) NOT NULL,
+  phone VARCHAR(30) NOT NULL,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  requested_role VARCHAR(20) NOT NULL,
+  role VARCHAR(20) NULL,
+  account_status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  approved_at DATETIME NULL,
+  last_login DATETIME NULL
+);
+
+CREATE TABLE IF NOT EXISTS classes (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  class_name VARCHAR(180) NOT NULL,
+  class_code VARCHAR(80) NOT NULL UNIQUE,
+  teacher_id BIGINT NOT NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'ACTIVE',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (teacher_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS class_enrollments (
+  class_id BIGINT NOT NULL,
+  student_id BIGINT NOT NULL,
+  enrolled_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(class_id, student_id),
+  FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE,
+  FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS class_sessions (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  class_id BIGINT NOT NULL,
+  started_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ended_at DATETIME NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'OPEN',
+  FOREIGN KEY (class_id) REFERENCES classes(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS attendance_sessions (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  class_session_id BIGINT NOT NULL,
+  taken_by BIGINT NOT NULL,
+  taken_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (class_session_id) REFERENCES class_sessions(id) ON DELETE CASCADE,
+  FOREIGN KEY (taken_by) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS attendance_records (
+  attendance_session_id BIGINT NOT NULL,
+  student_id BIGINT NOT NULL,
+  status VARCHAR(20) NOT NULL,
+  recorded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(attendance_session_id, student_id),
+  FOREIGN KEY (attendance_session_id) REFERENCES attendance_sessions(id) ON DELETE CASCADE,
+  FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS password_reset_otps (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  user_id BIGINT NOT NULL,
+  code_hash CHAR(64) NOT NULL,
+  reset_token VARCHAR(80) NULL UNIQUE,
+  expires_at DATETIME NOT NULL,
+  verified_at DATETIME NULL,
+  used BOOLEAN NOT NULL DEFAULT FALSE,
+  attempts INT NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_reset_user(user_id)
+);

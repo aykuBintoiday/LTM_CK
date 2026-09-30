@@ -1,0 +1,8 @@
+SMART CLASSROOM V3.8 - SCREEN SHARE FOCUS MODE
+
+- Khi bất kỳ Client nào chia sẻ màn hình, tile màn hình đó được đưa lên vùng hiển thị lớn nhất của Meeting.
+- Camera của các Client khác vẫn tồn tại và vẫn nhận video, nhưng được thu nhỏ thành thumbnail ở dải phía dưới.
+- Có nút "Ẩn camera nhỏ" / "Hiện camera nhỏ"; ẩn chỉ ẩn giao diện, không xoá Client hoặc ngắt luồng WebRTC.
+- Khi người chia sẻ dừng share hoặc rời phòng, giao diện tự quay lại lưới camera bình thường.
+- Nếu một người khác bắt đầu share, giao diện tự chuyển focus sang người đó.
+- Giữ nguyên các chức năng V3.7: MySQL, TCP/UDP, OTP email, WebRTC, gửi file trong chat, điểm danh.

@@ -1,0 +1,7 @@
+SMART CLASSROOM V3.7 - SMTP PKIX FIX
+
+- Sửa lỗi: PKIX path building failed khi gửi OTP Gmail trên Windows.
+- EmailService dùng Windows-ROOT trust store trên Windows thay vì chỉ dùng JDK cacerts.
+- Vẫn kiểm tra hostname smtp.gmail.com.
+- Không dùng trust-all / không tắt kiểm tra chứng chỉ.
+- Giữ nguyên App Password và luồng OTP tới email Client trong database.

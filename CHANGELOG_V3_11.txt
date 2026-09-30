@@ -1,0 +1,7 @@
+SMART CLASSROOM V3.11 - INPUT HEIGHT / TEXT CLIPPING FIX
+
+- Tăng chiều cao ô nhập lên 46px.
+- Giảm border inset dư thừa làm chữ bị cắt theo chiều dọc.
+- Sửa riêng cấu hình Server: không còn ép JTextField/JPasswordField xuống 36px.
+- Client auth forms cũng dùng chiều cao input 46px để ổn định ở Windows scale 125%/150%.
+- Giữ nguyên toàn bộ chức năng V3.10.

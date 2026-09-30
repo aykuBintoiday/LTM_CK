@@ -1,0 +1,7 @@
+BAO MAT V3.5
+============
+- Khong hard-code mat khau MySQL, Gmail hoac Google App Password vao source.
+- Khong commit Google App Password len GitHub.
+- Gmail gui OTP nen dung mot tai khoan demo rieng cho do an.
+- Mat khau tai khoan Smart Classroom duoc luu dang PBKDF2 + salt.
+- OTP chi luu SHA-256, co han su dung va gioi han so lan thu.

@@ -1,0 +1,21 @@
+SMART CLASSROOM V3.5
+
+1) CHIA SE MAN HINH
+- Nut moi trong Meeting: Chia se man hinh / Dung chia se.
+- Dung WebRTC Native VideoDesktopSource, khong mo Chrome, khong HTML.
+- Mic van tiep tuc hoat dong khi share.
+- Khi dung share, outgoing video quay lai camera.
+- Giao vien share -> tat ca sinh vien co PeerConnection voi giao vien se thay.
+- Sinh vien share -> giao vien se thay (kien truc teacher-centered hien tai).
+
+2) GUI TEP TRONG O CHAT
+- Nut "Tep" nam ngay canh nut Gui trong tab Tro chuyen.
+- Gioi han demo: 20 MB.
+- Chunk 8 KB, sequence number, ACK, retry, FILE_MISSING de phat lai goi thieu.
+- Server cache chunk tam thoi ~120 giay.
+- File nhan luu vao Downloads\\SmartClassroomReceived.
+
+3) KIEM TRA
+- Build javac --release 17 thanh cong.
+- Client/Server class major version 61 (Java 17).
+- Smoke-test khoi dong Swing Client va Server thanh cong.

@@ -1,0 +1,12 @@
+SMART CLASSROOM V3.10 - MODERN UI REFRESH
+
+- Thiết kế lại toàn bộ giao diện Client và Server theo phong cách Modern Blue Professional.
+- Form Kết nối / Login / Register / Quên mật khẩu / OTP / Đổi mật khẩu: card bo góc, khoảng cách và typography đồng nhất.
+- Lobby: header gradient, bảng hiện đại, nút hành động phân cấp rõ ràng.
+- Meeting: dark workspace kiểu ứng dụng họp trực tuyến, control bar gọn, panel thành viên/chat sáng và dễ đọc.
+- VideoTile: bo góc, shadow nhẹ, nhãn tên overlay tối, phù hợp cả camera grid và thumbnail khi share màn hình.
+- Screen-share focus của V3.8 được giữ nguyên: màn hình share lớn, camera khác thu nhỏ/ẩn nhưng không ngắt kết nối.
+- Server Admin: header Control Center, card cấu hình, 4 stat card, bảng/tab/nút duyệt được làm mới.
+- Thêm ModernUI.java dùng chung để đồng bộ màu sắc, font, rounded button, card, input, table và tab.
+- Không thêm thư viện giao diện bên ngoài; vẫn là Java Swing/JDK 17 thuần.
+- Giữ nguyên toàn bộ chức năng V3.8: MySQL, account approval, classes, attendance, WebRTC, screen share, chat file, OTP email/PKIX fix.

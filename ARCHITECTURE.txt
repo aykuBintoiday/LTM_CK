@@ -1,0 +1,27 @@
+SMART CLASSROOM V3.5
+====================
+Client Java Swing
+  |-- TCP :5001 -> Register/Login/Forgot Password/Class DB operations
+  |-- UDP :5000 -> Heartbeat/Meeting/Chat/Attendance/WebRTC signaling
+  `-- WebRTC Native -> Camera/Microphone P2P
+
+Server Java Swing
+  |-- TCP Server
+  |-- UDP Server
+  |-- MySQL via JDBC
+  |-- Gmail SMTP SSL :465 for password-reset OTP
+  `-- Admin: account approval, online users, classes, sessions
+
+MySQL
+  users
+  classes
+  class_enrollments
+  class_sessions
+  attendance_sessions
+  attendance_records
+  password_reset_otps
+
+V3.5 MEDIA + FILE
+- WebRTC Native: camera/mic + screen capture (VideoDesktopSource).
+- Screen share thay outgoing video track; signaling van qua UDP Server.
+- Chat file: UDP application-level reliability (chunk + sequence + ACK + retransmission + FILE_MISSING).

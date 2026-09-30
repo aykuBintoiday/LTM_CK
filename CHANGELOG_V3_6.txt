@@ -1,0 +1,11 @@
+SMART CLASSROOM V3.6
+
+Sua ro luong Quen mat khau:
+1. Client nhap email that da dang ky.
+2. Server tim user trong Database.
+3. Dia chi NHAN OTP duoc lay tu users.email trong MySQL.
+4. Gmail/App Password tren Server chi la tai khoan GUI OTP (FROM).
+5. OTP 6 so gui toi email Client (TO).
+6. OTP dung -> form doi mat khau -> cap nhat password hash trong DB.
+
+Cac chuc nang V3.5 nhu WebRTC native, chia se man hinh va gui file trong chat duoc giu nguyen.
